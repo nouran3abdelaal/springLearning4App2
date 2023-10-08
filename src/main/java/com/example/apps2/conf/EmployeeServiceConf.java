@@ -1,10 +1,12 @@
 package com.example.apps2.conf;
 import com.example.apps2.Employees.EmployeeService;
 import com.example.apps2.models.Employee;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Primary;
+
 
 import java.util.List;
 
@@ -36,14 +38,14 @@ public class EmployeeServiceConf {
     private char employee2Gender;
     @Bean
     @ConditionalOnMissingBean
-
+    @Primary
+//    @ConditionalOnMissingBean
     EmployeeService getEmployeeService(){
         return new EmployeeService();
     }
-
+    @Primary
     @Bean(value = "List1")
-    @ConditionalOnMissingBean
-
+//    @ConditionalOnMissingBean
     List<Employee> getEmployeeList1(){
 
         return List.of(
@@ -53,7 +55,7 @@ public class EmployeeServiceConf {
         );
     }
     @Bean(value = "List2")
-    @ConditionalOnMissingBean
+//   @ConditionalOnMissingBean
     List<Employee> getEmployeeList2(){
         return List.of(
                 new Employee("1","Ahmed2",26, 'M'),
