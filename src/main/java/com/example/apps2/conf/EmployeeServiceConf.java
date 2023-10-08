@@ -45,7 +45,6 @@ public class EmployeeServiceConf {
     }
     @Primary
     @Bean(value = "List1")
-//    @ConditionalOnMissingBean
     List<Employee> getEmployeeList1(){
 
         return List.of(
@@ -55,7 +54,6 @@ public class EmployeeServiceConf {
         );
     }
     @Bean(value = "List2")
-//   @ConditionalOnMissingBean
     List<Employee> getEmployeeList2(){
         return List.of(
                 new Employee("1","Ahmed2",26, 'M'),

@@ -1,5 +1,6 @@
 package com.example.apps2.Employees;
 
+import com.example.apps2.Exceptions.customException;
 import com.example.apps2.models.Employee;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,7 +52,8 @@ public class EmployeeService {
 
     }
 
-    public void deleteEmployee(String id) {
+    public void deleteEmployee(String id) throws customException {
         employeeList.removeIf(existingEmployee->existingEmployee.getId().equals(id));
+        throw new customException();
     }
 }
